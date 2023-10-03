@@ -79,8 +79,8 @@ used to sort the import statements in a particular file.
     plugins: [... ,'simple-import-sort'],
 ```
 4. To enable auto import sort on file save in vscode
-    -open `settings.json`
-    -add the following config
+    - open `settings.json`
+    - add the following config.
 ```
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
