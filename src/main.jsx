@@ -11,9 +11,8 @@ import { Provider } from "react-redux";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      <Toaster>
         <App />
-      </Toaster>
+      <Toaster/>
     </BrowserRouter>
   </Provider>
 );

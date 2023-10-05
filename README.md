@@ -33,13 +33,15 @@
 1. Install taiwindcss
 
 ``` 
-    npm install -D tailwindcss
+    npm install -D tailwindcss postcss autoprefixer
+
 ```
 
 2. Create tailwind config file
 
 ```
-    npx tailwindcss init
+    npx tailwindcss init -p
+
 ```
 
 3. Add file extensions to tailwind config file in the contents property
