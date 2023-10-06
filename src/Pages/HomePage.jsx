@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function HomePage(){
     return(
         <HomeLayout>
-            <div className="pt-10 text-white flex items-center justify-center gap-10 mx-16 h-[90vh]">
+            <div className=" pt-10 text-white flex items-center justify-center gap-10 mx-16 h-[90vh]">
                 <div className="w-1/2 space-y-6">
                     <h1 className="text-5xl font-semibold">
                         Find Out Best 
@@ -22,8 +22,9 @@ function HomePage(){
                     </div>
                 </div>
 
-                <div className="w-1/2 flex items-center justify-center">
-                    <img src="https://raw.githubusercontent.com/singhsanket143/lms-frontend-hn/2c0f069530145b61c2a378ea113abb97ae919f43/src/Assets/Images/homePageMainImage.png" alt="homepageImage" />
+                <div className="w-1/2 flex items-center justify-center"
+                >
+                    <img src="https://raw.githubusercontent.com/singhsanket143/lms-frontend-hn/2c0f069530145b61c2a378ea113abb97ae919f43/src/Assets/Images/homePageMainImage.png" alt="" />
                 </div>
             </div>
         </HomeLayout>
