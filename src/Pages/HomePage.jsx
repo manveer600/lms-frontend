@@ -22,8 +22,7 @@ function HomePage(){
                     </div>
                 </div>
 
-                <div className="w-1/2 flex items-center justify-center"
-                >
+                <div className="w-1/2 flex items-center justify-center">
                     <img src="https://raw.githubusercontent.com/singhsanket143/lms-frontend-hn/2c0f069530145b61c2a378ea113abb97ae919f43/src/Assets/Images/homePageMainImage.png" alt="" />
                 </div>
             </div>

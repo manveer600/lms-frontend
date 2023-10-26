@@ -1,7 +1,7 @@
 import {BsFacebook, BsInstagram, BsLinkedin, BsTwitter} from "react-icons/bs";
 function Footer(){
     const currentDate = new Date();
-    console.log(currentDate);
+    // console.log(currentDate);
     const year = currentDate.getFullYear();
     return(
         <>
