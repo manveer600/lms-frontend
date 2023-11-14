@@ -2,7 +2,8 @@ import { useState } from "react";
 import { BsPersonAdd} from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast"; import HomeLayout from "../Layouts/HomeLayout";
+import { toast } from "react-hot-toast"; 
+import HomeLayout from "../Layouts/HomeLayout";
 import { createAccount } from "../Redux/Slices/AuthSlice";
 
 function Signup(){
@@ -23,6 +24,7 @@ function handleUserInput(e){
     // console.log(e);
     // console.log(e.target);
     const {name, value} = e.target;
+    // console.log(name,value);
     setsignupData({
         ...signupData,
         [name]:value
@@ -49,6 +51,9 @@ function getImage(event){
 }
 
 function getImage2(event){
+    // console.log("event is",event);
+    // console.log("event target is:", event.target);
+    // console.log("event target file is:", event.target.files);
     event.preventDefault();
 
     const uploadedImage = event.target.files[0];
@@ -92,12 +97,14 @@ async function createNewAccount(event){
     formData.append("password", signupData.password);
     formData.append("avatar", signupData.avatar);
 
-
-    const response = await dispatch(createAccount(formData));
+    console.log(formData);
+    const response =  await dispatch(createAccount(formData));
+    // console.log("krle yr",response);
     if(response?.payload?.success) 
     navigate('/') ; 
+    
     // dispatch create account action
-    console.log(response);
+    console.log("Response is: ",response);
 
     setsignupData({
         fullName:"",
@@ -146,7 +153,7 @@ async function createNewAccount(event){
                      {/* Name */}       
                     <div className="flex flex-col gap-1">
                         <label htmlFor="fullName" className="font-semibold">Full Name</label>
-                        <input type="fullName" required name="fullName" id="fullName" placeholder="Enter your Full Name" className="px-2 py-1 bg-transparent border" onChange={handleUserInput} value={signupData.fullName} />
+                        <input type="fullName" required name="fullName" id="fullName" placeholder="Enter your Full Name" className="px-2 py-1 bg-transparent border" onChange={handleUserInput} />
                     </div>
 
 
