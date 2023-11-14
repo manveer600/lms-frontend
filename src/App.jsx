@@ -6,6 +6,7 @@ import NotFound from './Pages/NotFound';
 import { Routes,Route } from 'react-router-dom'
 import Signup from './Pages/SignUp';
 import Login from './Pages/Login.jsx'
+import CourseList from './Pages/Course/CourseList.jsx';
 function App() {
 
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
+
+        <Route path='/courses' element={<CourseList/>}/>
       </Routes>
       
 

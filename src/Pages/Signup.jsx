@@ -97,23 +97,21 @@ async function createNewAccount(event){
     formData.append("password", signupData.password);
     formData.append("avatar", signupData.avatar);
 
-    console.log(formData);
+    // dispatch create account action
     const response =  await dispatch(createAccount(formData));
-    // console.log("krle yr",response);
     if(response?.payload?.success) 
     navigate('/') ; 
     
-    // dispatch create account action
     console.log("Response is: ",response);
 
-    setsignupData({
-        fullName:"",
-        email:"",
-        password:"",
-        avatar:""
-    });
+    // setsignupData({
+    //     fullName:"",
+    //     email:"",
+    //     password:"",
+    //     avatar:""
+    // });
 
-    setPreviewImage("");
+    // setPreviewImage("");
 }
 
 
