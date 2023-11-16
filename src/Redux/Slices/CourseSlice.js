@@ -11,7 +11,8 @@ export const getAllCourses = createAsyncThunk('/course/get' , async() => {
         const response = axiosInstance.get('/courses');
         toast.promise(response,{
             loading:"Loading courses....",
-            success:"Courses loaded successfully",
+            success:()=>{"Courses loaded successfully",console.log("response is", response)},
+            
             error:"Failed to get the courses",
         })
         return (await response).data.courses;
@@ -25,8 +26,10 @@ const courseSlice = createSlice({
     initialState,
     reducers:{},
     extraReducers:(builder) => {
-        builder.addCase(getAllCourses.fulfilled , (state, action) => {
+        builder
+        .addCase(getAllCourses.fulfilled , /*reducer function*/ (state, action) => {
             if(action?.payload){
+                console.log('action is', action);
                 console.log(action.payload);
                 state.courseData = [...action.payload];
             }

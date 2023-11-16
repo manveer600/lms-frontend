@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast"; 
 import HomeLayout from "../Layouts/HomeLayout";
 import { createAccount } from "../Redux/Slices/AuthSlice";
+import { isEmailValid, isPasswordValid } from "../Helpers/regexMatcher";
 
 function Signup(){
     const dispatch = useDispatch();
@@ -79,16 +80,30 @@ async function createNewAccount(event){
         return ;
     }
     // checking valid email id
-    if(!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+    // if(!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+    //     toast.error('Invalid Email Id');
+    //     return;
+    // }
+
+    // checking valid password
+    // if(!signupData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)){
+    //     toast.error("Password must be atleast 6-16 characters long with atleast a number and special character");
+    //     return ;
+    // }
+
+    // checking valid email id
+    if(!isEmailValid(signupData.email)){
         toast.error('Invalid Email Id');
         return;
     }
 
     // checking valid password
-    if(!signupData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)){
+    if(!isPasswordValid(signupData.password)){
         toast.error("Password must be atleast 6-16 characters long with atleast a number and special character");
         return ;
     }
+
+
 
 
     const formData = new FormData();
@@ -102,7 +117,6 @@ async function createNewAccount(event){
     if(response?.payload?.success) 
     navigate('/') ; 
     
-    console.log("Response is: ",response);
 
     // setsignupData({
     //     fullName:"",

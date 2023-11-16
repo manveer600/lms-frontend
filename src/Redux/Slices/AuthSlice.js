@@ -13,7 +13,7 @@ export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
         toast.promise(res, {
           loading: "Wait! Creating your account",
           success: (data) => {
-            console.log("hurrayyyyyyyy!!!!!!!!!!!!!!!!!!!",data);
+            // console.log("hurrayyyyyyyy!!!!!!!!!!!!!!!!!!!",data);
             return data?.data?.message;
           },
           error: "Failed to create account",
@@ -41,6 +41,7 @@ export const login = createAsyncThunk('/auth/login', async (data) => {
         return (await res).data;
     }
     catch (error) {
+        console.log("error is:", error);
         toast.error(error?.response?.data?.message);
         return;
     }
@@ -57,7 +58,6 @@ export const logout = createAsyncThunk('/auth/logout', async() => {
           },
           error: "Failed to logout",
         });
-        console.log("data is:", data);
         return (await res).data;
     }
     catch (error) {
@@ -91,5 +91,5 @@ const authSlice = createSlice({
 })
 
 
-export const {} = authSlice.actions;
+// export const {} = authSlice.actions;
 export default authSlice.reducer;
