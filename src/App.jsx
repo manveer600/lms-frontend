@@ -8,6 +8,7 @@ import Signup from './Pages/SignUp';
 import Login from './Pages/Login.jsx'
 import CourseList from './Pages/Course/CourseList.jsx';
 import Contact from './Pages/Contact.jsx';
+import Denied from './Pages/Denied.jsx';
 function App() {
 
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
-        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/contact' element={<Contact/>}/> 
+        <Route path='/denied' element={<Denied/>}/> 
 
         <Route path='/courses' element={<CourseList/>}/>
       </Routes>
