@@ -1,14 +1,16 @@
+import { Routes,Route } from 'react-router-dom'
+
 import './App.css'
 import AboutUs from './Pages/AboutUs';
-
 import HomePage from "./Pages/HomePage";
 import NotFound from './Pages/NotFound';
-import { Routes,Route } from 'react-router-dom'
 import Signup from './Pages/SignUp';
 import Login from './Pages/Login.jsx'
 import CourseList from './Pages/Course/CourseList.jsx';
 import Contact from './Pages/Contact.jsx';
 import Denied from './Pages/Denied.jsx';
+import CourseDescription from './Pages/Course/CourseDescription.jsx';
+
 function App() {
 
   return (
@@ -21,7 +23,7 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
         <Route path='/contact' element={<Contact/>}/> 
         <Route path='/denied' element={<Denied/>}/> 
-
+        <Route path='/course/description' element={<CourseDescription/>}/> 
         <Route path='/courses' element={<CourseList/>}/>
       </Routes>
       
