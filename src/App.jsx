@@ -10,7 +10,8 @@ import CourseList from './Pages/Course/CourseList.jsx';
 import Contact from './Pages/Contact.jsx';
 import Denied from './Pages/Denied.jsx';
 import CourseDescription from './Pages/Course/CourseDescription.jsx';
-
+import RequireAuth from './Components/Auth/RequireAuth.jsx';
+import { CreateCourse } from './Pages/Course/CreateCourse.jsx';
 function App() {
 
   return (
@@ -25,6 +26,9 @@ function App() {
         <Route path='/denied' element={<Denied/>}/> 
         <Route path='/course/description' element={<CourseDescription/>}/> 
         <Route path='/courses' element={<CourseList/>}/>
+        <Route element={<RequireAuth allowedRoles={['ADMIN']}/>}>
+            <Route path='/course/create' element={<CreateCourse/>}/>
+          </Route>
       </Routes>
       
 
