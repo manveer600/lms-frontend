@@ -10,13 +10,12 @@ import Footer from "../Components/Footer";
 import { logout } from "../Redux/Slices/AuthSlice";
 
 function HomeLayout({ children }) {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
 
-  const role = useSelector((state)=> state?.auth?.role);
+  const role = useSelector((state) => state?.auth?.role);
 
   function changeWidth() {
     const drawerSide = document.getElementsByClassName("drawer-side");
@@ -32,15 +31,13 @@ function HomeLayout({ children }) {
     changeWidth();
   }
 
-  async function handleLogout(e){
+  async function handleLogout(e) {
     // e.preventDefault();
 
     const res = await dispatch(logout());
 
     console.log(res);
-    if(res?.payload?.success)
-    navigate("/");
-
+    if (res?.payload?.success) navigate("/");
   }
   return (
     <div className="min-h-[90vh] bg-black">
@@ -77,6 +74,12 @@ function HomeLayout({ children }) {
               </li>
             )}
 
+            {isLoggedIn && role === "ADMIN" && (
+              <li>
+                <Link to="/course/create">Create Course</Link>
+              </li>
+            )}
+
             <li>
               <Link to="/courses">All Courses</Link>
             </li>
@@ -91,34 +94,32 @@ function HomeLayout({ children }) {
 
             {!isLoggedIn && (
               <li className=" absolute bottom-4 w-[90%]">
-              <div className=" w-full flex items-center justify-center">
-                <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
-                  <Link to="/login">Login</Link>
-                </button>
-                <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
-                  <Link to="/signup">Signup</Link>
-                </button>
-              </div>
+                <div className=" w-full flex items-center justify-center">
+                  <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to="/login">Login</Link>
+                  </button>
+                  <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to="/signup">Signup</Link>
+                  </button>
+                </div>
               </li>
             )}
 
             {isLoggedIn && (
               <li className="absolute bottom-4 w-[90%]">
-              <div className="w-full flex items-center justify-center">
-                <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
-                  <Link to="/user/profile">Profile</Link>
-                </button>
-                <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
-                  <Link onClick={handleLogout}>Logout</Link>
-                </button>
-              </div>
+                <div className="w-full flex items-center justify-center">
+                  <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to="/user/profile">Profile</Link>
+                  </button>
+                  <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link onClick={handleLogout}>Logout</Link>
+                  </button>
+                </div>
               </li>
             )}
           </ul>
         </div>
       </div>
-
-      
 
       {children}
 
