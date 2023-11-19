@@ -74,7 +74,7 @@ export function CreateCourse() {
     <HomeLayout>
       <div className="flex border-8 items-center justify-center h-[90vh]">
         <form noValidate
-          className="flex flex-col border-8 border-red-400 justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px] relative"
+          className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px] relative"
           onSubmit={onFormSubmit}
         >
           <Link className="absolute top-8 text-2xl link text-accent cursor-pointer">
