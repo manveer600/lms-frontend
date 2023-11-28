@@ -5,7 +5,8 @@ import axiosInstance from "../../Helpers/axiosInstance.js"
 const initialState = {
     isLoggedIn: localStorage.getItem('isLoggedIn') || false,
     role:localStorage.getItem('role') || "",
-    data: JSON.parse(localStorage.getItem('data') )|| {}
+    data: localStorage.getItem('data') !== undefined ? 
+    JSON.parse(localStorage.getItem('data') ) : {}
 };
 export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
     try {
@@ -66,6 +67,31 @@ export const logout = createAsyncThunk('/auth/logout', async() => {
     }
 })
 
+export const updateProfile = createAsyncThunk('/user/update/profile', async(data)=>{
+    try{
+        const res = axiosInstance.put('user/update-user', data);
+        toast.promise(res,{
+            loading:"Updating User!! please wait.....",
+            success:(data)=>{data?.data?.message},
+            error:"Failed to update profile"
+        });
+        return (await res).data;
+    }catch(e){
+        console.log('error',e);
+        return toast.error(e?.response?.data?.message);
+    }
+})
+
+
+export const getUserData = createAsyncThunk('/user/details', async()=>{
+    try{
+        const res = axiosInstance.get('user/me');
+        return (await res).data;
+    }catch(e){
+        console.log('error',e);
+        return toast.error(e.message);
+    }
+})
 const authSlice = createSlice({
     name:'auth',
     initialState,
@@ -86,6 +112,16 @@ const authSlice = createSlice({
             state.data = {};
             state.isLoggedIn = false;
             state.role = "";
+        })
+        .addCase(getUserData.fulfilled, (state,action)=>{
+            if(!action?.payload?.user) return;
+            localStorage.setItem('isLoggedIn', true);
+            localStorage.setItem('role', action?.payload?.user?.role);
+            localStorage.setItem('data', JSON.stringify(action?.payload?.user));
+
+            state.isLoggedIn = true;
+            state.data = action?.payload?.user;
+            state.role = action?.payload?.user?.role;
         })
     }
 })
