@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axiosInstance from '../../Helpers/axiosInstance'
 import toast from "react-hot-toast";
-import { build } from "vite";
 const initialState = {
     key:"",
     subscription_id:"",
@@ -96,7 +95,7 @@ const razorpaySlice = createSlice({
             state.isPaymentVerified = action?.payload?.success
         })
         .addCase(verifyUserPayment.rejected, (state,action)=>{
-            toast.error(action?.payload?.message);
+            toast.success(action?.payload?.message);
             state.isPaymentVerified = action?.payload?.success
         })
         .addCase(getPaymentRecord.fulfilled, (state,action)=>{
