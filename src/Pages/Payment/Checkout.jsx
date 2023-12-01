@@ -18,10 +18,6 @@ function Checkout() {
   const subscription_id = useSelector(
     (state) => state.razorpay.subscription_id
   );
-  const userData = useSelector((state) => state?.auth?.data);
-  const isPaymentVerified = useSelector(
-    (state) => state?.razorpay?.isPaymentVerified
-  );
 
   const paymentDetails = {
     razorpay_payment_id: "",
@@ -42,10 +38,6 @@ function Checkout() {
       description: "Subscription",
       theme: {
         color: "#028195",
-      },
-      prefill: {
-        email: userData.email,
-        name: userData.fullName,
       },
       handler: async function (response) {
         paymentDetails.razorpay_payment_id = response.razorpay_payment_id;
@@ -68,11 +60,18 @@ function Checkout() {
 
   async function load() {
     await dispatch(getRazorPayId());
-    await dispatch(purchaseCourseBundle());
+    const res = await dispatch(purchaseCourseBundle());
+    console.log(res);
+    console.log(res.payload.success);
+    console.log(res.payload.message);
   }
+
+
   useEffect(() => {
     load();
   }, []);
+
+
   return (
     <div>
       <HomeLayout>

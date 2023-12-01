@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axiosInstance from '../../Helpers/axiosInstance'
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 const initialState = {
     key:"",
     subscription_id:"",
@@ -10,6 +11,7 @@ const initialState = {
     monthlySalesRecord:[]
 }
 
+// useSelector((state)=> state.auth.data.)
 
 export const getRazorPayId = createAsyncThunk("/razorpay/getId", async() => {
     try{
@@ -63,17 +65,21 @@ export const getPaymentRecord = createAsyncThunk('/payments/record', async()=>{
 
 
 export const cancelCourseBundle = createAsyncThunk('/payments/cancel', async()=>{
+    console.log("cancelling course bundle");
     try{
         const response = axiosInstance.post('/payments/unsubscribe');
+        console.log('hello g');
         toast.promise(response,{
             loading:"Cancelling your subscription...",
             success:(data)=>{
+                console.log("data is: ", data);
                 return data?.data?.message
             },
             error:"Failed to cancel subscription"
         })
     }catch(err){
-        toast.error(err?.response?.data?.message);
+        console.log("error aagya paaji", err);
+        return toast.error(err?.response?.data?.message);
     }
 })
 
@@ -102,6 +108,8 @@ const razorpaySlice = createSlice({
             state.allPayments = action?.payload?.allPayments;
             state.finalMonth = action?.payload?.finalMonth;
             state.monthlySalesRecord = action?.payload?.monthlySalesRecord;
+        }).addCase(cancelCourseBundle.fulfilled, (state,action)=> {
+            
         })
     }
 })
