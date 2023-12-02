@@ -71,7 +71,7 @@ function DisplayLectures() {
                 <li className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
                     <p>Lectures list</p>
                     {role === "ADMIN" && (
-                        <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm">
+                        <button onClick={() => navigate("/course/addLecture", {state: {...state}})} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm">
                             Add new lecture
                         </button>
                     )}

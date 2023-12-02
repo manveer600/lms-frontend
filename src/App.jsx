@@ -18,6 +18,7 @@ import Checkout from "./Pages/Payment/Checkout.jsx";
 import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess.jsx";
 import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
 import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
+import AddLecture from "./Pages/Dashboard/AddLecture.jsx";
 function App() {
   return (
     <>
@@ -44,7 +45,8 @@ function App() {
         <Route path="/checkout/success" element={<CheckoutSuccess/>}/>
         <Route path="/checkout/fail" element={<CheckoutFailure/>}/>
         <Route path="/course/displayLectures" element={<DisplayLectures/>}/>
-
+        <Route path="/course/addLecture" element={<AddLecture/>}/>
+      
       </Routes>
 
     </>
