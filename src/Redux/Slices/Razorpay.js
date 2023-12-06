@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axiosInstance from '../../Helpers/axiosInstance'
 import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
 const initialState = {
     key:"",
     subscription_id:"",
@@ -11,7 +10,6 @@ const initialState = {
     monthlySalesRecord:[]
 }
 
-// useSelector((state)=> state.auth.data.)
 
 export const getRazorPayId = createAsyncThunk("/razorpay/getId", async() => {
     try{

@@ -65,6 +65,10 @@ function AddLecture() {
       navigate("/courses");
     }
   }, []);
+
+  function handleDivClick(){
+    document.getElementById('lecture').click()
+  }
   return (
     <div>
       <HomeLayout>
@@ -108,7 +112,7 @@ function AddLecture() {
                   className="object-fill rounded-tl-lg rounded-tr-lg w-full"
                 ></video>
               ) : (
-                <div className="h-48 border flex items-center justify-center cursor-pointer">
+                <div onClick={handleDivClick}className="h-48 border flex items-center justify-center cursor-pointer">
                   <label
                     className="font-semibold hover:text-yellow-500 text-cl cursor-pointer"
                     htmlFor="lecture"
