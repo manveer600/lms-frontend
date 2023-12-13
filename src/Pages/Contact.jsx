@@ -3,7 +3,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { isEmailValid } from "../Helpers/regexMatcher";
 import axiosInstance from "../Helpers/axiosInstance";
+import { useNavigate } from "react-router-dom";
 function Contact(){
+    const navigate = useNavigate();
     const [userInput , setUserInput] = useState({
         name:"",
         email:'',
@@ -20,48 +22,26 @@ function Contact(){
 
     async function onFormSubmit(e){
         e.preventDefault();
-
+        
         if(!userInput.email || !userInput.name || !userInput.message ){
-            toast.error("All fields are mandatory");
-            return;
+            return toast.error("All fields are mandatory");
+            
         }
-
+        
         if(!isEmailValid(userInput.email)){
             toast.error("Invalid Email");
             return;
         }
+        
+        toast.success('Feedback submitted');
 
-
-        try{
-            const response = axiosInstance.post('/contact');
-            toast.promise(res,
-                {
-                    loading:"Submitting your message ....",
-                    success:"Feedback submitted successfully",
-                    error:"Failed to submit the form"
-                })
-                
-
-                const contactResponse = await res;
-                if(contactResponse?.data?.success){
-                    setUserInput({
-                        name:"",
-                        email:'',
-                        message:""
-                    })
-                }
-                else{
-                    toast.error('Operation failed');
-                }
-        }catch(e){
-            console.log('Error: ', e);
-        }
+        
     }
     return(
         <HomeLayout>
-            <div className="flex items-center justify-center h-[100vh]">
-            <form noValidate onSubmit={onFormSubmit} className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white   w-[22rem] shadow-[0_0_10px_white]">
-                <h1 className="text-3xl font-semibold">Contact form</h1>
+            <div className="flex flex-col items-center justify-center h-[100vh]">
+            <form noValidate onSubmit={onFormSubmit} className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white w-[22rem] shadow-[0_0_10px_black]">
+                <h1 className="text-3xl font-semibold font-serif">Contact form</h1>
 
                 <div className="flex flex-col w-full gap-1">
                     <label htmlFor="name" className="text-xl font-semibold">Name</label>
@@ -85,6 +65,10 @@ function Contact(){
                         Submit
                     </button>
             </form>
+            
+            <button onClick={()=> navigate(-1)} className="hover:text-red-700 mt-2 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
+            Go Back
+      </button>
             </div>
         </HomeLayout>
     )

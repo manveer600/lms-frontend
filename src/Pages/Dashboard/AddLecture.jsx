@@ -2,23 +2,23 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { addCourseLecture } from "../../Redux/Slices/LectureSlice";
+import { addCourseLecture } from "../../Redux/Slices/LectureSlice.js";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 function AddLecture() {
-  const courseDetails = useLocation().state;
-  console.log(courseDetails);
-
+  const courseDetails = useLocation()?.state;
+  console.log("courseDatails",courseDetails);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [userInput, setUserInput] = useState({
     id: courseDetails._id,
-    lecture: undefined,
-    title: "",
-    description: "",
-    videoSrc: "",
-  });
+      lecture: undefined,
+      title: "",
+      description: "",
+      videoSrc: "",
+    });
+
 
   function handleInputChange(e) {
     // e.preventDefault();
@@ -60,15 +60,18 @@ function AddLecture() {
     }
   }
 
+  
+ 
+  
   useEffect(() => {
-    if (!courseDetails._id) {
-      navigate("/courses");
-    }
+    console.log('fuck',courseDetails);
+    if (!courseDetails) 
+      {console.log('courseDetails2nd', courseDetails);
+      navigate("/courses");}
+    
   }, []);
 
-  function handleDivClick(){
-    document.getElementById('lecture').click()
-  }
+
   return (
     <div>
       <HomeLayout>
@@ -112,7 +115,7 @@ function AddLecture() {
                   className="object-fill rounded-tl-lg rounded-tr-lg w-full"
                 ></video>
               ) : (
-                <div onClick={handleDivClick}className="h-48 border flex items-center justify-center cursor-pointer">
+                <div className="h-48 border flex items-center justify-center cursor-pointer">
                   <label
                     className="font-semibold hover:text-yellow-500 text-cl cursor-pointer"
                     htmlFor="lecture"

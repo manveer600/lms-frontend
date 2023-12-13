@@ -115,7 +115,7 @@ async function createNewAccount(event){
     // dispatch create account action
     const response =  await dispatch(createAccount(formData));
     if(response?.payload?.success) 
-    navigate('/') ; 
+    navigate('/user/profile') ; 
     
 
     // setsignupData({
@@ -134,7 +134,7 @@ async function createNewAccount(event){
     return(
         <HomeLayout>
             <div className=" flex items-center justify-center h-[90vh]">
-                <form noValidate onSubmit={createNewAccount} className=" flex flex-col  justify-center gap-3 space-y-2 rounded-lg p-4 text-white w-96 shadow-[0_0_10px]">
+                <form noValidate onSubmit={createNewAccount} className=" flex flex-col  justify-center gap-3 space-y-2 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]">
                     <h1 className="text-center text-2xl font-bold ">Registration Page</h1>
                     
 

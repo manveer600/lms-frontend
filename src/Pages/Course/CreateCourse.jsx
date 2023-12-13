@@ -72,18 +72,18 @@ export function CreateCourse() {
 
   return (
     <HomeLayout>
-      <div className="flex border-8 items-center justify-center h-[90vh]">
+      <div className="h-full flex pt-32 items-center justify-center md:h-[90vh]">
         <form noValidate
-          className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px] relative"
+          className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white  sm:w-[500px] md:w-[700px] my-10 shadow-[0_0_10px_black] relative"
           onSubmit={onFormSubmit}
         >
           <Link className="absolute top-8 text-2xl link text-accent cursor-pointer">
             <AiOutlineArrowLeft />
           </Link>
 
-          <h1 className="text-center text-2xl font-bold">Create New Course</h1>
+          <h1 className="text-center text-2xl font-bold font-serif">Create New Course</h1>
 
-          <main className="grid grid-cols-2 gap-x-10">
+          <main className=" sm:grid grid-cols-2 gap-x-10">
             {/* LEFT SECTION */}
             <div className="gap-y-6">
               <div>
@@ -92,7 +92,7 @@ export function CreateCourse() {
                     <img src={userInput.previewImage} />
                   ) : (
                     <div className="w-full h-44 m-auto flex items-center justify-center border">
-                      <h1 className="font-bold text-lg">
+                      <h1 className="font-bold text-lg pl-2 pr-2 font-serif">
                         Upload your course thumbnail
                       </h1>
                     </div>
@@ -109,7 +109,7 @@ export function CreateCourse() {
                 />
               </div>
 
-              <div className="flex flex-col gap-1">
+              <div className="flex mt-2 flex-col gap-1">
                 <label className="text-lg font-semibold" htmlFor="title">
                   Course Title
                 </label>

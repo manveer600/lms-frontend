@@ -3,11 +3,11 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 
 import { Link, useNavigate } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import Footer from "../Components/Footer";
 import { logout } from "../Redux/Slices/AuthSlice";
+import { useState } from "react";
 
 function HomeLayout({ children }) {
   const dispatch = useDispatch();
@@ -39,9 +39,10 @@ function HomeLayout({ children }) {
     console.log(res);
     if (res?.payload?.success) navigate("/");
   }
+
   return (
-    <div className="min-h-[90vh] bg-black">
-      <div className="z-10 drawer absolute left-0 w-fit">
+    <div className="h-full bg-gray-800">
+      <div className="z-10 drawer absolute w-fit">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
 
         <div className="drawer-content">
@@ -74,11 +75,13 @@ function HomeLayout({ children }) {
               </li>
             )}
 
-            {isLoggedIn && role === "ADMIN" && (
-              <li>
-                <Link to="/course/create">Create Course</Link>
-              </li>
-            )}
+            {
+              isLoggedIn && role === "ADMIN" && (
+                <li>
+                  <Link to="/course/create">Create Course</Link>
+                </li>
+              )
+            }
 
             <li>
               <Link to="/courses">All Courses</Link>
@@ -120,7 +123,6 @@ function HomeLayout({ children }) {
           </ul>
         </div>
       </div>
-
       {children}
 
       <Footer />

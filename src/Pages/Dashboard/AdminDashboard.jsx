@@ -12,15 +12,15 @@ import {
 } from "chart.js";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { deleteCourse, getAllCourses } from "../../Redux/Slices/CourseSlice";
-import { getStatData } from "../../Redux/Slices/StatSlice";
-import { getPaymentRecord } from "../../Redux/Slices/Razorpay";
+import { getStatData } from "../../Redux/Slices/StatSlice.js";
+import { getPaymentRecord } from "../../Redux/Slices/Razorpay.js";
 import { Pie } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 import { FaUsers } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi";
 import { FcSalesPerformance } from "react-icons/fc";
 import { BsCollectionPlayFill, BsTrash } from "react-icons/bs";
+import { getAllCourses, deleteAllCourses,  deleteCourse} from "../../Redux/Slices/CourseSlice.js";
 import toast from "react-hot-toast";
 ChartJs.register(
   ArcElement,
@@ -36,6 +36,8 @@ function AdminDashboard() {
 
   const navigate = useNavigate();
 
+  const courses = useSelector((state) => state.course.courseData)
+  console.log('courses', courses);
   const { allUsersCount, subscribedCount } = useSelector((state) => state.stat);
 
   const { allPayments, monthlySalesRecord } = useSelector(
@@ -111,6 +113,19 @@ function AdminDashboard() {
     }
   }
 
+  async function delete_All_Courses(){
+    if (window.confirm("Are you sure you want to delete all the courses ? ")) {
+      console.log('yes')
+      const res = await dispatch(deleteAllCourses());
+      console.log('res', res);
+      if(res?.payload?.success){
+        console.log('all courses deleted successfully')
+        toast.success('All Courses deleted successfully');
+         await dispatch(getAllCourses());
+      }
+    }
+  }
+
   useEffect(() => {
     (async () => {
       await dispatch(getAllCourses());
@@ -123,18 +138,18 @@ function AdminDashboard() {
 
   return (
     <HomeLayout>
-      <div className="min-h-[90vh] pt-5 flex flex-col flex-wrap gap-10 text-white">
+      <div className="min-h-[90vh] font-serif pt-5 flex flex-col flex-wrap gap-10 text-white">
         <h1 className="text-center text-5xl font-semibold text-yellow-500">
           Admin Dashboard
         </h1>
 
         <div className="grid grid-cols-2 gap-5 m-auto mx-10">
           <div className="flex flex-col items-center gap-10 p-5 shadow-lg rounded-md">
-            <div className="w-80 h-80">
+            <div className=" w-80 h-80">
               <Pie data={userData} />
             </div>
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className=" grid grid-cols-2 gap-5">
               <div className="flex items-center justify-between p-5 gap-5 rounded-md shadow-md">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Registered Users</p>
@@ -204,7 +219,7 @@ function AdminDashboard() {
             </button>
           </div>
 
-          <table className="table overflow-x-scroll">
+          {courses.length ? <table className="table overflow-x-scroll">
             <thead>
               <tr>
                 <th>S No</th>
@@ -274,8 +289,9 @@ function AdminDashboard() {
                 );
               })}
             </tbody>
-          </table>
+          </table>: <div className="text-center font-bold font-serif text-yellow-400 text-3xl">No courses found</div> }
         </div>
+        
       </div>
     </HomeLayout>
   );

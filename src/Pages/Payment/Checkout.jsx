@@ -48,7 +48,7 @@ function Checkout() {
         toast.success("Payment successfull");
         const res = await dispatch(verifyUserPayment(paymentDetails));
 
-        res?.payload?.success 
+        res?.payload?.success
           ? navigate("/checkout/success")
           : navigate("/checkout/fail");
       },
@@ -66,11 +66,9 @@ function Checkout() {
     console.log(res.payload.message);
   }
 
-
   useEffect(() => {
     load();
   }, []);
-
 
   return (
     <div>
@@ -80,7 +78,7 @@ function Checkout() {
           onSubmit={handleSubscription}
           action=""
         >
-          <div className="w-80  h-[26rem] absolute flex flex-col justify-center shadow-[0_0_10px_white] rounded-lg">
+          <div className="w-80  h-[26rem]  absolute flex flex-col justify-center shadow-[0_0_10px_black] rounded-lg">
             <h1 className="bg-yellow-500  absolute top-0 w-full text-center py-4 text-2xl font-bold rounded-tl0lg rounded-lg">
               Subscription Bundle
             </h1>
@@ -111,6 +109,7 @@ function Checkout() {
               </button>
             </div>
           </div>
+          
         </form>
       </HomeLayout>
     </div>

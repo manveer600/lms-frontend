@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import AboutUs from "./Pages/AboutUs";
-import HomePage from "./Pages/HomePage";
-import NotFound from "./Pages/NotFound";
-import Signup from "./Pages/SignUp";
+import AboutUs from "./Pages/AboutUs.jsx";
+import HomePage from "./Pages/HomePage.jsx";
+import NotFound from "./Pages/NotFound.jsx";
+import Signup from "./Pages/SignUp.jsx";
 import Login from "./Pages/Login.jsx";
 import CourseList from "./Pages/Course/CourseList.jsx";
 import Contact from "./Pages/Contact.jsx";
@@ -17,9 +17,9 @@ import { EditProfile } from "./Pages/User/EditProfile.jsx";
 import Checkout from "./Pages/Payment/Checkout.jsx";
 import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess.jsx";
 import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
-import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
 import AddLecture from "./Pages/Dashboard/AddLecture.jsx";
 import AdminDashboard from "./Pages/Dashboard/AdminDashboard.jsx";
+import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
 function App() {
   return (
     <>
