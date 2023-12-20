@@ -49,7 +49,7 @@ function CourseList() {
               src="https://e7.pngegg.com/pngimages/902/706/png-clipart-computer-icons-emoticon-sadness-others-face-smiley-thumbnail.png"
               alt=""
             />
-            <p className="text-center mt-10"><button onClick={() => navigate('/course/create')} className="text-3xl bg-yellow-600 hover:bg-yellow-500 p-3 rounded-xl font-serif">Add Course</button></p> 
+           {  <p className="text-center mt-10"><button onClick={() => navigate('/course/create')} className="text-3xl bg-yellow-600 hover:bg-yellow-500 p-3 rounded-xl font-serif">Add Course</button></p> }
           </div>
         }
       </div>

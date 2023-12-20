@@ -95,6 +95,10 @@ function HomeLayout({ children }) {
               <Link to="/about">About Us</Link>
             </li>
 
+            {isLoggedIn && role === 'USER' && <li>
+              <Link to="/favCourses">My Favourite Courses</Link>
+            </li>}
+
             {!isLoggedIn && (
               <li className=" absolute bottom-4 w-[90%]">
                 <div className=" w-full flex items-center justify-center">

@@ -4,7 +4,7 @@ import "./App.css";
 import AboutUs from "./Pages/AboutUs.jsx";
 import HomePage from "./Pages/HomePage.jsx";
 import NotFound from "./Pages/NotFound.jsx";
-import Signup from "./Pages/SignUp.jsx";
+import Signup from "./Pages/Signup.jsx";
 import Login from "./Pages/Login.jsx";
 import CourseList from "./Pages/Course/CourseList.jsx";
 import Contact from "./Pages/Contact.jsx";
@@ -20,6 +20,8 @@ import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
 import AddLecture from "./Pages/Dashboard/AddLecture.jsx";
 import AdminDashboard from "./Pages/Dashboard/AdminDashboard.jsx";
 import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
+import ForgotPassword from "./Pages/User/ForgotPassword.jsx";
+import FavouriteCourses from "./Pages/Course/FavouriteCourses.jsx";
 function App() {
   return (
     <>
@@ -48,6 +50,8 @@ function App() {
         <Route path="/checkout/fail" element={<CheckoutFailure/>}/>
         <Route path="/course/displayLectures" element={<DisplayLectures/>}/>
         <Route path="/course/addLecture" element={<AddLecture/>}/>
+        <Route path="/user/forgotpassword" element={<ForgotPassword/>}/>
+        <Route path="/favCourses" element={<FavouriteCourses/>}/>
       
       </Routes>
 

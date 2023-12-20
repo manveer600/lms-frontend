@@ -2,12 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { deleteCourse, getAllCourses } from "../Redux/Slices/CourseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosHeart } from "react-icons/io";
-import { addToFavourites, getAllFavCourses, removeFromFavourites } from "../Redux/Slices/FavouriteCourseReducer";
+import { addToFavourites } from "../Redux/Slices/FavouriteCourseReducer";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
 
 function CourseCard({ data }) {
-  const [favourite, setFavourite] = useState(false);
   console.log("data is", data);
   const dispatch = useDispatch();
   const userData = useSelector((state) => state?.auth?.data);
@@ -23,35 +21,12 @@ function CourseCard({ data }) {
   }
 
   async function addCoursesToFavourites() {
-    console.log(data);
-    console.log(favourite);
-    setFavourite(!favourite);
-    console.log(favourite);
-    if(favourite == false){
-      // favourite me add krdoh
-      const res = await dispatch(addToFavourites(data._id));
-      if(res?.payload?.success){
-        toast.success(`${data.title} added to favourites`);
-      }
+    const res = await dispatch(addToFavourites(data._id));
+    console.log('ab yahan pe bhi 1 response aa rha h', res);
+    if(res?.payload?.success){
+      toast.success(`${data.title} added to favourites`);
     }
-    else if(favourite == true){
-      // remove from favourites
-      try{
-        const response = await dispatch(removeFromFavourites(data._id));
-        await dispatch(getAllFavCourses());
-        console.log('kuch toh chahta hoon', response);
-        if(response?.payload?.success){
-          toast.success(`Removed ${data.title} from favourites`);
-        }
-      }catch(e){
-        console.log(e);
-      }
-    
-    }
-  
   }
-
-
 
   return (
     <div className="relative">
@@ -85,6 +60,7 @@ function CourseCard({ data }) {
               {data?.createdBy}
             </p>
           </div>
+
         </div>
       </div>
 
@@ -100,12 +76,10 @@ function CourseCard({ data }) {
       )}
       {userData?.role === "USER" && (
         <IoIosHeart
-          style={{ color: favourite ? "red" : "white" }}
           onClick={addCoursesToFavourites}
           className="absolute bottom-2 hover:text-red-600 left-2 w-10 h-10"
         />
       )}
-      
     </div>
   );
 }

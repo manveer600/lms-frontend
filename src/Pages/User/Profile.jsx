@@ -21,13 +21,13 @@ export function Profile() {
   }
   return (
     <HomeLayout>
-      <div className="min-h-[90vh] flex items-center justify-center">
+      <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-center">
         
         {/* left div for profile picture */}
-        <div className="w-1/2 ml-8">
-          <div>
+        <div className="lg:w-1/2 mt-20 mb-10 w-full ">
+          <div className="w-full  ">
             <img
-              className="h-[500px] w-[500px] m-auto rounded-full"
+              className="h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] m-auto rounded-full"
               src={userData?.avatar?.secure_url}
               alt=""
             />
@@ -40,9 +40,11 @@ export function Profile() {
             </h1>
           </div>
         </div>
-        <div className="w-1/2 text-white">
+
+        {/* second div */}
+        <div className="lg:w-1/2 text-white">
           <div className="font-bold ml-8 space-y-3">
-            <h4 className="font-serif text-5xl text-yellow-500">
+            <h4 className="font-serif text-4xl sm:text-5xl underline text-yellow-500">
               Profile Information
             </h4>
             <h4 className="font-bold text-red-500 text-2xl font-serif">Name: <span className="text-xl text-green-500">{userData.fullName} </span></h4>
@@ -78,7 +80,6 @@ export function Profile() {
               userData.role === 'ADMIN' && <h1 className="text-xl font-serif text-green-500">Admin doesn't need a subscription</h1>
             }
             </div>
-           
           </div>
         </div>
       </div>

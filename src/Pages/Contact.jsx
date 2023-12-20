@@ -39,8 +39,8 @@ function Contact(){
     }
     return(
         <HomeLayout>
-            <div className="flex flex-col items-center justify-center h-[100vh]">
-            <form noValidate onSubmit={onFormSubmit} className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white w-[22rem] shadow-[0_0_10px_black]">
+            <div className="flex flex-col pt-24 items-center justify-center h-[100vh]">
+            <form noValidate onSubmit={onFormSubmit} className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white sm:w-[22rem] shadow-[0_0_10px_black]">
                 <h1 className="text-3xl font-semibold font-serif">Contact form</h1>
 
                 <div className="flex flex-col w-full gap-1">
@@ -66,7 +66,7 @@ function Contact(){
                     </button>
             </form>
             
-            <button onClick={()=> navigate(-1)} className="hover:text-red-700 mt-2 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
+            <button onClick={()=> navigate(-1)} className="mb-8 hover:text-red-700 mt-2 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
             Go Back
       </button>
             </div>
