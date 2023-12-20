@@ -38,12 +38,13 @@ function DisplayLectures() {
 
   return (
     <HomeLayout>
-      <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-wihte mx-[5%]">
-        <div className="text-center text-4xl font-serif font-semibold text-yellow-500">
+      <div className="flex  flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-wihte mx-[5%]">
+        <div className="text-center  text-4xl font-serif font-semibold text-yellow-500">
           Course Name: <span className="text-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">{state?.title}</span>
         </div>
+
         {lectures.length === 0 && 
-          <div className="text-center">
+          <div className="text-center ">
             {" "}
             <h1 className="text-3xl text-white font-bold font-serif"> No Lectures</h1>
             <button className="mt-5">
@@ -68,9 +69,9 @@ function DisplayLectures() {
           </div>
         }
         {lectures && lectures.length > 0 && (
-          <div className="flex justify-center gap-10 w-full">
+          <div className="flex flex-col md:flex-row justify-center gap-10  w-full">
             {/* left section for playing videos and displaying course details to admin */}
-            <div className="space-y-5 w-4/6 text-white p-2 rounded-lg shadow-[0_0_10px_black]">
+            <div className="space-y-5 w-full md:w-4/6 text-white p-2 rounded-lg shadow-[0_0_10px_black]">
               <video
                 src={lectures && lectures[currentVideo]?.lecture?.secure_url}
                 className="object-fill rounded-tl-lg rounded-tr-lg w-full"
@@ -94,7 +95,7 @@ function DisplayLectures() {
             </div>
 
             {/* right section for displaying list of lectures */}
-            <ul className="w-2/6 text-white p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
+            <ul className="w-[290px] md:w-2/6 text-white p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
               <li className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
                 <p className="font-serif underline">Lectures list</p>
                 {role === "ADMIN" && (
@@ -144,6 +145,9 @@ function DisplayLectures() {
             </ul>
           </div>
         )}
+        <button onClick={()=> navigate(-1)} className="mb-8 hover:text-red-700 mt-2 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
+            Go Back
+      </button>
       </div>
     </HomeLayout>
   );

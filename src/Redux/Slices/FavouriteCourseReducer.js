@@ -3,7 +3,8 @@ import axiosInstance from "../../Helpers/axiosInstance"
 import toast from "react-hot-toast";
 
 const initialState = {
-    favouriteCourses:[],
+    favouriteCourses: localStorage.getItem('favouriteCourses') ? localStorage.getItem('favouriteCourses') : [],
+    // favouriteCourses:[],
 }
 
 export const addToFavourites = createAsyncThunk('course/addToFavourites', async(id)=>{
@@ -38,17 +39,17 @@ const FavouriteCourseSlice = createSlice({
     name:"favouriteCourse",
     initialState,
     reducers:{},
-    extraReducers:(builder)=>{
-        builder.addCase(addToFavourites.fulfilled, (state,action)=>{
-            console.log('action is:',action);
-            state.favouriteCourses = [...state.favouriteCourses,action?.payload?.course]
-        })
+    // extraReducers:(builder)=>{
+    //     // builder.addCase(addToFavourites.fulfilled, (state,action)=>{
+    //     //     console.log('action is:',action);
+    //     //     state.favouriteCourses = [...state.favouriteCourses,action?.payload?.course]
+    //     // })
        
-        builder.addCase(getAllFavCourses.fulfilled,(state,action) => {
-            console.log(action);
-            state.favouriteCourses= action?.payload?.courses;
-        })
-    }
+    //     // builder.addCase(getAllFavCourses.fulfilled,(state,action) => {
+    //     //     console.log(action);
+    //     //     state.favouriteCourses= action?.payload?.courses;
+    //     // })
+    // }
 })
 
 

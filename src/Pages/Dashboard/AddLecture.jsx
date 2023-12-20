@@ -76,7 +76,7 @@ function AddLecture() {
     <div>
       <HomeLayout>
         <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 mx-16">
-          <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-96 rounded-lg">
+          <div className="flex mt-20 flex-col gap-5 p-2 shadow-[0_0_10px_black] w-[300px] sm:w-96 rounded-lg">
             <header className="flex items-center justify-center relative">
               <button
                 className="absolute left-2 text-xl text-green-500"
@@ -140,6 +140,9 @@ function AddLecture() {
             </button>
             </form>
           </div>
+          <button onClick={()=> navigate(-1)} className="mb-8 hover:text-red-700 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
+            Go Back
+      </button>
         </div>
       </HomeLayout>
     </div>
