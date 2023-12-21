@@ -20,7 +20,7 @@ function HomePage() {
           <div className=" md:w-1/2 flex w-full flex-col items-center">
             <img
               className="sm:h-[600px] pl-3 sm:w-[390px] "
-              src="src/assets/manveer.png"
+              src="../assets/manveer.png"
               alt=""
             />
             <h1 className=" mt-3 font-serif text-3xl bg-black px-3 text-green-600 hover:text-red-500 cursor-pointer">
