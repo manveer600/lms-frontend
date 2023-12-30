@@ -139,13 +139,13 @@ function AdminDashboard() {
   return (
     <HomeLayout>
       <div className="min-h-[90vh] w-full font-serif pt-5 flex flex-col flex-wrap gap-10 text-white">
-        <h1 className="text-center mt-20 text-5xl font-semibold text-yellow-500">
+        <h1 className="text-center  mt-20 text-3xl sm:text-5xl font-semibold text-yellow-500">
           Admin Dashboard
         </h1>
 
         <div className="flex flex-col md:flex-row gap-5 m-auto">
-          <div className="flex md:w-1/2 w-[300px] sm:w-[640px] flex-col items-center justify-center gap-10 p-5 rounded-md"> 
-            <div className=" w-80 h-80">
+          <div className="flex  shadow-lg md:w-1/2 w-[250px] sm:w-[640px] flex-col items-center justify-center gap-10 p-5 rounded-md"> 
+            <div className="w-[250px]  justify-center  sm:w-full sm:h-80 sm:flex flex-row items-center ">
               <Pie data={userData} />
             </div>
 
@@ -172,9 +172,9 @@ function AdminDashboard() {
             </div>
           </div>
 
-          <div className="flex  md:w-1/2 w-[300px] sm:w-[640px] flex-col items-center justify-center gap-10 p-5 rounded-md">
+          <div className="flex shadow-lg md:w-1/2 w-[250px] sm:w-[640px] flex-col items-center justify-center gap-10 p-5 rounded-md">
             <div className="h-80 w-full relative">
-              <Bar className="absolute bottom-0 h-80 w-full" data={salesData} />
+              <Bar className="absolute bottom-0 h-80 " data={salesData} />
             </div>
 
             <div className="grid grid-cols-2 gap-5">
@@ -289,7 +289,7 @@ function AdminDashboard() {
                 );
               })}
             </tbody>
-          </table>: <div className="text-center font-bold font-serif text-yellow-400 text-3xl">No courses found</div> }
+          </table>: <div className="text-center font-bold font-serif text-yellow-400 text-3xl mt-3">No courses found</div> }
         </div>
         
       </div>

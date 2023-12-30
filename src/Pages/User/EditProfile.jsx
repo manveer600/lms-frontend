@@ -69,7 +69,7 @@ export function EditProfile(){
         <div>
             <HomeLayout>
                 <div className="flex items-center justify-center min-h-[90vh]">
-                    <form noValidate onSubmit={onFormSubmit} className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-80 min-h-[26rem] shadow-[0_0_10px_white]">
+                    <form noValidate onSubmit={onFormSubmit} className="flex mt-14 flex-col justify-center gap-5 rounded-lg p-4 text-white sm:w-80 min-h-[26rem] shadow-[0_0_10px_black]">
                         <h1 className="text-center text-2xl font-semibold font-serif">Edit profile</h1>
 
                         {/* IMAGE UPLOADING */}

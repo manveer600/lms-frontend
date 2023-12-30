@@ -72,16 +72,16 @@ export function CreateCourse() {
 
   return (
     <HomeLayout>
-      <div className="h-full flex pt-32 items-center justify-center md:h-[90vh]">
+      <div className=" flex pt-20 items-center justify-center h-full">
         <form noValidate
-          className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white  sm:w-[500px] md:w-[700px] my-10 shadow-[0_0_10px_black] relative"
+          className="flex flex-col border justify-center gap-5 rounded-lg p-4 pt-0 text-white w-[250px] sm:w-[500px] md:w-[700px]  shadow-[0_0_10px_black] relative"
           onSubmit={onFormSubmit}
         >
-          <Link className="absolute top-8 text-2xl link text-accent cursor-pointer">
+          <Link className="absolute top-3 text-2xl link text-accent cursor-pointer">
             <AiOutlineArrowLeft />
           </Link>
 
-          <h1 className="text-center text-2xl font-bold font-serif">Create New Course</h1>
+          <h1 className="text-center text-2xl font-bold font-serif mt-2">Create New Course</h1>
 
           <main className=" sm:grid grid-cols-2 gap-x-10">
             {/* LEFT SECTION */}

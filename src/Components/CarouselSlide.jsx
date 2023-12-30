@@ -7,7 +7,7 @@ function CarouselSlide({image, title, description, slideNumber, totalSlides}){
                 <a href={`#slide${(slideNumber) % totalSlides + 1}`} className="btn btn-circle">❯</a>
               </div>
               <img src={image} className="w-40 m-auto rounded-full "/>
-              <p className="text-xl mt-10 text-gray-200">{description}</p>
+              <p className="text-xl text-gray-200 p-3 mt-20">{description}</p>
               <h3 className="text-4xl animate- font-semibold">-{title}</h3>
             </div>
           </div>

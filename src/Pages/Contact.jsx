@@ -39,8 +39,8 @@ function Contact(){
     }
     return(
         <HomeLayout>
-            <div className="flex flex-col pt-24 items-center justify-center h-[100vh]">
-            <form noValidate onSubmit={onFormSubmit} className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white sm:w-[22rem] shadow-[0_0_10px_black]">
+            <div className="flex flex-col  items-center justify-center sm:h-[100vh]">
+            <form noValidate onSubmit={onFormSubmit} className="flex mt-14 flex-col items-center justify-center gap-2 p-5 rounded-md text-white sm:w-[22rem] shadow-[0_0_10px_black]">
                 <h1 className="text-3xl font-semibold font-serif">Contact form</h1>
 
                 <div className="flex flex-col w-full gap-1">

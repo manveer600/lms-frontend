@@ -20,7 +20,7 @@ function HomePage() {
           <div className=" md:w-1/2 flex w-full flex-col items-center">
             <img
               className="sm:h-[600px] pl-3 sm:w-[390px] "
-              src="../assets/manveer.png"
+              src="https://res.cloudinary.com/dkyhu1iqb/image/upload/v1703235924/IMG-20230922-WA0003-removebg_1_urujqo.png"
               alt=""
             />
             <h1 className=" mt-3 font-serif text-3xl bg-black px-3 text-green-600 hover:text-red-500 cursor-pointer">

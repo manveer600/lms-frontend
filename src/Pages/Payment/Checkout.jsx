@@ -78,12 +78,12 @@ function Checkout() {
           onSubmit={handleSubscription}
           action=""
         >
-          <div className="w-80  h-[26rem]  absolute flex flex-col justify-center shadow-[0_0_10px_black] rounded-lg">
-            <h1 className="bg-yellow-500  absolute top-0 w-full text-center py-4 text-2xl font-bold rounded-tl0lg rounded-lg">
+          <div className="w-[250px] mt-24 sm:w-80  h-[26rem]  absolute flex flex-col justify-center shadow-[0_0_10px_black] rounded-lg">
+            <h1 className="bg-yellow-500  absolute top-0 w-full text-center py-4 text-xl sm:text-2xl font-bold rounded-tl0lg rounded-lg">
               Subscription Bundle
             </h1>
 
-            <div className="px-4 space-y-5 text-center">
+            <div className="px-4 mt-4 space-y-5 text-center">
               <p className="text-[17px]">
                 This purchase will allow you to access all available course of
                 our platform fo{" "}

@@ -207,17 +207,17 @@ function AboutUs() {
 
 
         {/* success stories */}
-        <div className="m-5  mb-20">
+        <div className="m-5 mb-20">
           <h1 className=" font-bold text-center font-serif text-transparent text-4xl  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  text-blue-500 p-5">
             Success Stories
           </h1>
 
-          <div className="flex h-[500px] space-x-[100px] p-10 w-screen overflow-x-scroll no-scrollbar ">
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+          <div className="flex first-letter:h-[500px] space-x-[100px] p-10 w-screen overflow-x-scroll no-scrollbar ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 60% increment
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -244,11 +244,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px] shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 7-12LPA(FRESHER)
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -275,11 +275,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px]  w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 60% increment
               </h1>
-              <div className="p-4  w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -306,11 +306,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px]  w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 24LPA
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -335,11 +335,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 250% increment
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -366,11 +366,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 1L/PM
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -397,11 +397,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 60% increment
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -428,11 +428,11 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="h-[400px] w-[400px]  shadow-[0_0_10px_black] ">
+            <div className="h-[450px] w-[250px] sm:w-[400px] shadow-[0_0_10px_black] ">
               <h1 className="flex justify-center text-yellow-400 items-center h-10 shadow-[0_0_10px_black] bg-gray-500 rounded-tl-lg  font-bold text-2xl">
                 22LPA
               </h1>
-              <div className="p-4 w-[400px]">
+              <div className="p-4 w-[275px] sm:w-[400px]">
                 <div className="flex gap-4 items-center">
                   <img
                     src="https://img.freepik.com/free-vector/creative-gradient-code-logo_23-2148820572.jpg"
@@ -464,7 +464,7 @@ function AboutUs() {
 
 
         {/* carousel wala div */}
-        <h1 class="font-bold font-serif text-center text-transparent text-4xl animate-bounce  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <h1 class="font-bold font-serif text-center text-transparent text-4xl animate-bounce  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 p-3">
           Some of the famous quotes from where we get inspire
         </h1>
         <div className="carousel w-full font-serif mt-3 ">

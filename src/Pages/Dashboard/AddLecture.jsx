@@ -76,10 +76,11 @@ function AddLecture() {
     <div>
       <HomeLayout>
         <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 mx-16">
-          <div className="flex mt-20 flex-col gap-5 p-2 shadow-[0_0_10px_black] w-[300px] sm:w-96 rounded-lg">
+          <div className=" mt-20 underline text-3xl font-bold font-serif text-red-500 text-center ">{courseDetails?.title}</div>
+          <div className="flex border flex-col gap-5 p-2 shadow-[0_0_10px_black]  sm:w-96 rounded-lg">
             <header className="flex items-center justify-center relative">
               <button
-                className="absolute left-2 text-xl text-green-500"
+                className="absolute  left-1 sm:left-2 text-xl text-green-500"
                 onClick={() => navigate(-1)}
               >
                 <AiOutlineArrowLeft />
@@ -140,7 +141,7 @@ function AddLecture() {
             </button>
             </form>
           </div>
-          <button onClick={()=> navigate(-1)} className="mb-8 hover:text-red-700 px-8 py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
+          <button onClick={()=> navigate(-1)} className="mb-8 hover:text-red-700 px-3 sm:px-8 py-2 sm:py-3 bg-[#1A2238] border font-medium text-[#FF6A3D]">
             Go Back
       </button>
         </div>

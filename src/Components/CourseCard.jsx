@@ -25,7 +25,7 @@ function CourseCard({ data }) {
   const navigate = useNavigate();
   console.log("courses", courses);
   async function handleDeleteCourse() {
-    if (window.confirm(`Are you sure you want to delete ${data.title}?`)) {
+    if (window.confirm(`Are you sure you want to delete ${data.title} course?`)) {
       console.log(data);
       await dispatch(deleteCourse(data._id));
       await dispatch(getAllCourses());
@@ -88,11 +88,11 @@ function CourseCard({ data }) {
     <div className="relative">
       <div
         onClick={() => navigate("/course/description", { state: { ...data } })}
-        className="text-white w-[18rem] sm:w-[20rem] md:w-[22rem] h-[440px]  rounded-lg cursor-pointer  overflow-hidden bg-zinc-700 relative border"
+        className="text-white w-[250px] p-4 sm:w-[20rem] md:w-[22rem] h-[440px]  rounded-lg cursor-pointer  overflow-hidden bg-zinc-700 relative "
       >
         <div className="overflow-hidden">
           <img
-            className="h-48 w-full rounded-tl-lg rounded-tr-lg group-hover:scale=[1,2] transition-all ease-in-out diration-300"
+            className="rounded-tl-lg rounded-tr-lg group-hover:scale=[1,2] transition-all ease-in-out diration-300"
             src={data?.thumbnail?.secure_url}
             alt="course thumbnail"
           />
@@ -122,20 +122,14 @@ function CourseCard({ data }) {
       {userData?.role === "ADMIN" && (
         <p className="mt-2 text-center space-x-2">
           <button
-            className="p-2 bg-red-600 absolute m-auto bottom-4 left-2 font-serif hover:bg-red-500 rounded-lg"
+            className="p-2 bg-red-600 absolute m-auto bottom-4 left-6 font-serif hover:bg-red-500 rounded-lg"
             onClick={handleDeleteCourse}
           >
             Delete Course
           </button>
         </p>
       )}
-      {/* {userData?.role === "USER" && (
-        <IoIosHeart
-          // style={{ color: favourite ? "red" : "white" }}
-          onClick={addCoursesToFavourites}
-          className="absolute bottom-2 hover:text-red-600 left-2 w-10 h-10"
-        />
-      )} */}
+      
     </div>
   );
 }
