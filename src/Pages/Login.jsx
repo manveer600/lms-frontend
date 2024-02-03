@@ -3,7 +3,6 @@ import { BsPersonAdd} from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast"; 
-import HomeLayout from "../Layouts/HomeLayout";
 import { login } from "../Redux/Slices/AuthSlice";
 
 function Login(){
@@ -18,8 +17,6 @@ function Login(){
     })
 
 function handleUserInput(e){
-    // console.log(e);
-    // console.log(e.target);
     const {name, value} = e.target;
     setLoginData({
         ...loginData,
@@ -42,7 +39,6 @@ async function onLogin(event){
     if(response?.payload?.success) 
     navigate('/') ; 
     
-    console.log("Response is: ",response);
 
     setLoginData({
         email:"",
@@ -55,9 +51,8 @@ async function onLogin(event){
 
 
     return(
-        <HomeLayout>
-            <div className=" flex items-center justify-center h-[90vh]">
-                <form noValidate onSubmit={onLogin} className=" border flex flex-col  justify-center gap-3 space-y-2 rounded-lg p-4 text-white w-[250px] mt-10 sm:w-96 shadow-[0_0_10px_black]">
+            <div className=" flex items-center justify-center bg-gray-800 h-screen">
+                <form noValidate onSubmit={onLogin} className=" flex flex-col  justify-center gap-3 space-y-2 rounded-lg p-4 text-white w-[250px] sm:w-96 shadow-[0_0_10px_black]">
                     <h1 className="text-center font-serif underline text-2xl font-bold ">Login Page</h1>
 
 
@@ -77,7 +72,7 @@ async function onLogin(event){
                     <div className="space-y-1 font-serif">
                         <button type="submit" className="bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 w-full text-lg cursor-pointer rounded-lg py-2 font-semibold mt-2" onClick={onLogin}>Login</button>
                         <p className="text-center  mt-0">Don't have an account? <Link className="link text-accent cursor-pointer" to="/signup">Signup</Link></p>
-                        <h1 onClick={()=> navigate('/user/forgotpassword' )} className="text-center link text-accent mb-0">Forgot Password?</h1>
+                        {/* <h1 onClick={()=> navigate('/user/forgotpassword' )} className="text-center link text-accent mb-0">Forgot Password?</h1> */}
                         </div>
 
                     {/* Button To Create an Account */}
@@ -85,7 +80,6 @@ async function onLogin(event){
 
                 </form>
             </div>
-        </HomeLayout>
     )
 }
 

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserData, updateProfile } from "../../Redux/Slices/AuthSlice";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import HomeLayout from "../../Layouts/HomeLayout";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 export function EditProfile(){
@@ -67,8 +66,7 @@ export function EditProfile(){
 
     return (
         <div>
-            <HomeLayout>
-                <div className="flex items-center justify-center min-h-[90vh]">
+                <div className="flex bg-gray-800 items-center justify-center min-h-[90vh]">
                     <form noValidate onSubmit={onFormSubmit} className="flex mt-14 flex-col justify-center gap-5 rounded-lg p-4 text-white sm:w-80 min-h-[26rem] shadow-[0_0_10px_black]">
                         <h1 className="text-center text-2xl font-semibold font-serif">Edit profile</h1>
 
@@ -118,7 +116,6 @@ export function EditProfile(){
                         </Link>
                     </form>
                 </div>
-            </HomeLayout>
         </div>
     )
  

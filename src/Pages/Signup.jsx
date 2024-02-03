@@ -3,7 +3,6 @@ import { BsPersonAdd} from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast"; 
-import HomeLayout from "../Layouts/HomeLayout";
 import { createAccount } from "../Redux/Slices/AuthSlice";
 import { isEmailValid, isPasswordValid } from "../Helpers/regexMatcher";
 
@@ -22,39 +21,15 @@ function Signup(){
     })
 
 function handleUserInput(e){
-    // console.log(e);
-    // console.log(e.target);
     const {name, value} = e.target;
-    // console.log(name,value);
     setsignupData({
         ...signupData,
         [name]:value
     })
 }
 
-function getImage(event){
-    event.preventDefault();
-
-    const uploadedImage = event.target.files[0];
-    if(uploadedImage){
-        setsignupData({
-            ...signupData,
-            avatar:uploadedImage
-        });
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(uploadedImage);
-        
-        fileReader.addEventListener("load",function(){
-            // console.log(this.result);
-            setPreviewImage(this.result);
-        })
-    }
-}
 
 function getImage2(event){
-    // console.log("event is",event);
-    // console.log("event target is:", event.target);
-    // console.log("event target file is:", event.target.files);
     event.preventDefault();
 
     const uploadedImage = event.target.files[0];
@@ -69,7 +44,6 @@ function getImage2(event){
 
 async function createNewAccount(event){
     event.preventDefault();
-
     if(!signupData.email || !signupData.password || !signupData.fullName || !signupData.avatar ){
         toast.error('Please fill all the details');
         return ;
@@ -79,18 +53,8 @@ async function createNewAccount(event){
         toast.error("Name should be atleast 4 characters long");
         return ;
     }
-    // checking valid email id
-    // if(!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-    //     toast.error('Invalid Email Id');
-    //     return;
-    // }
 
-    // checking valid password
-    // if(!signupData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)){
-    //     toast.error("Password must be atleast 6-16 characters long with atleast a number and special character");
-    //     return ;
-    // }
-
+    
     // checking valid email id
     if(!isEmailValid(signupData.email)){
         toast.error('Invalid Email Id');
@@ -118,22 +82,21 @@ async function createNewAccount(event){
     navigate('/user/profile') ; 
     
 
-    // setsignupData({
-    //     fullName:"",
-    //     email:"",
-    //     password:"",
-    //     avatar:""
-    // });
+    setsignupData({
+        fullName:"",
+        email:"",
+        password:"",
+        avatar:""
+    });
 
-    // setPreviewImage("");
+    setPreviewImage("");
 }
 
 
 
 
     return(
-        <HomeLayout>
-            <div className=" flex items-center justify-center sm:h-[90vh]">
+            <div className=" flex bg-gray-800 items-center justify-center sm:h-[90vh]">
                 <form noValidate onSubmit={createNewAccount} className=" mt-14 flex flex-col  justify-center gap-3 space-y-2 rounded-lg p-4 text-white w-[250px] sm:w-96 shadow-[0_0_10px_black]">
                     <h1 className="text-center text-2xl font-bold ">Registration Page</h1>
                     
@@ -190,7 +153,6 @@ async function createNewAccount(event){
 
                 </form>
             </div>
-        </HomeLayout>
     )
 }
 
